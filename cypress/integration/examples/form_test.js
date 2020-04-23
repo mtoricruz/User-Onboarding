@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid'
 
 
 
-//  Check to see if a user can submit the form data
+
 //  Check for form validation if an input is left empty
 
 const name = uuid().slice(0, 4)
@@ -39,11 +39,14 @@ describe('Test Form MVP', () => {
           .type(password)
           .should('have.value', password)
 
-        cy.get(`input=[name='${tos}']`)
+        cy.get('input[name="termsofservice"]')
         //  Set up a test that will check to see if a user can check the terms of service box
+          .check().should('be.checked')
           
-
+          cy.contains('Submit')
+          .click()
     })
+
 
 
 })
