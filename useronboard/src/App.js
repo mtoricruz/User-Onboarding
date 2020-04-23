@@ -53,7 +53,7 @@ function App() {
   // STEP 2 - KEEP TRACK OF THE VALIDATION ERRORS!
   const [formErrors, setFormErrors] = useState(initialFormErrors)
 
-  {/* /////////////////// We don't need a get request ///////////// */}
+  //////////////////// We don't need a get request ///////////// 
 
   // const getUsers = () => {
   //   // STEP 3 - FETCH USERS FROM API
@@ -80,7 +80,7 @@ function App() {
     axios.post(url, user)
       .then(res => {
         setUsers([...users, res.data])
-        console.log(res)
+        console.log('------>', res)
       })
       .catch(err => {
         debugger
@@ -165,13 +165,8 @@ function App() {
         errors={formErrors}
       />
 
-    {
-      users.map(eachUser => {
-        return (
-          <User key={eachUser.id} details={eachUser} />
-        )
-      })
-    }
+    { users.map(eachUser => <User key={eachUser.id} details={eachUser} />) }
+    
     </div>
   );
 }
